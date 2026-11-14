@@ -43,23 +43,26 @@ const SITE = {
 
   /* ---- HORARIOS (puedes agregar o quitar bloques { }) ---- */
   servicios: [
-    { dia: "Miércoles", hora: "7:30 p. m.", detalle: "Servicio de mitad de semana" },
-    { dia: "Domingos",  hora: "6:30 p. m.", detalle: "Servicio dominical" }
+    { dia: "Miércoles", hora: "7:30 p. m.", detalle: "Estudio Biblico" },
+    { dia: "Domingos",  hora: "6:30 p. m.", detalle: "Servicio" }
   ],
 
   /* ---- UBICACIÓN ---- */
-  ubicacion: {
-    direccion: "Calle Los Americanos #20, Local A.",
-    ciudad: "",                     // Recomendado: agrega ciudad/país para que el mapa sea exacto. Ej: "Santo Domingo"
-    referencia: ""                  // Opcional. Ej: "Frente a ..."
-  },
+ 
+ubicacion: {
+  direccion: "Calle C, Local A #20, Los Americanos, M.V.S.",
+  ciudad: "San Cristóbal, República Dominicana",
+  referencia: "Luego de pasar el puentecito",
+  mapa: "https://maps.app.goo.gl/mkoSMxcrqtAQ7S1d6"
+},
+
 
   /* ---- CONTACTO (déjalos vacíos hasta tener los datos reales) ---- */
   contacto: {
     whatsapp:  "",                  // Solo números con código de país, sin + ni espacios
-    facebook:  "",                  // Enlace completo: https://facebook.com/...
-    instagram: "",                  // Enlace completo: https://instagram.com/...
-    correo:    ""                   // Correo electrónico
+    facebook:  "https://www.facebook.com/iglesiarefugiodegracia/",                  // Enlace completo: https://facebook.com/...
+    instagram: "https://www.instagram.com/iglesiarefugiodegracia/",                  // Enlace completo: https://instagram.com/...
+    correo:    "IglesiaRerugiodegracia@gmail.com"                   // Correo electrónico
   },
 
   copyright: "Iglesia Refugio de Gracia. Todos los derechos reservados."

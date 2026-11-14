@@ -107,3 +107,98 @@ a.contact-card:hover{transform:translateY(-4px);border-color:var(--dorado);box-s
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* ICONOS DE REDES SOCIALES */
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-card span {
+  font-weight: 600;
+}
+
+.contact-card strong {
+  font-size: 0.9rem;
+}
+
+
+/* MEJORAS VISUALES PARA CONTACTOS */
+
+#contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px;
+}
+
+.contact-card {
+  border: 1px solid rgba(128, 128, 128, 0.22);
+  border-radius: 16px;
+  padding: 20px 12px;
+  text-decoration: none;
+  min-height: 145px;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border-color: #1877F2;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.15);
+}
+
+.contact-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-card:active {
+  transform: scale(0.97);
+}
+
+.contact-card:focus-visible {
+  outline: 3px solid #1877F2;
+  outline-offset: 4px;
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 600px) {
+  #contactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .contact-card {
+    padding: 16px 8px;
+    min-height: 135px;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-card strong {
+    font-size: 0.82rem;
+    overflow-wrap: anywhere;
+  }
+}

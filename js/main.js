@@ -30,28 +30,76 @@
   $("servCards").innerHTML = S.servicios.map((s) =>
     `<article class="card"><h3>${esc(s.dia)}</h3><p class="time">${esc(s.hora)}</p><p>${esc(s.detalle || "")}</p></article>`).join("");
 
-  // Ubicación
-  const dirCompleta = [S.ubicacion.direccion, S.ubicacion.ciudad].filter(Boolean).join(", ");
-  const q = encodeURIComponent(dirCompleta);
-  const rutaURL = `https://www.google.com/maps/dir/?api=1&destination=${q}`;
-  $("locDir").textContent = dirCompleta;
-  $("locRef").textContent = S.ubicacion.referencia;
-  $("mapa").src = `https://www.google.com/maps?q=${q}&output=embed`;
-  $("locBtn").href = rutaURL;
-  $("heroComo").href = rutaURL;
+  
+// Ubicación
+const dirCompleta = [S.ubicacion.direccion, S.ubicacion.ciudad]
+  .filter(Boolean).join(", ");
 
+const rutaURL = S.ubicacion.mapa;
+
+$("locDir").textContent = dirCompleta;
+$("locRef").textContent = S.ubicacion.referencia;
+
+$("locBtn").href = rutaURL;
+$("heroComo").href = rutaURL;
+
+// Abrir Google Maps en otra pestaña
+$("locBtn").target = "_blank";
+$("heroComo").target = "_blank";
+$("locBtn").rel = "noopener noreferrer";
+$("heroComo").rel = "noopener noreferrer";
+
+// Ocultar el mapa incrustado
+$("mapa").parentElement.style.display = "none";
+
+
+  
   // Contacto
   const C = S.contacto;
   const wa = C.whatsapp.replace(/\D/g, "");
+
   const items = [
-    { n: "WhatsApp",  v: wa ? "Escribir por WhatsApp" : "", h: wa ? `https://wa.me/${wa}` : "" },
-    { n: "Facebook",  v: C.facebook ? "Visitar página" : "", h: C.facebook },
-    { n: "Instagram", v: C.instagram ? "Ver perfil" : "", h: C.instagram },
-    { n: "Correo",    v: C.correo, h: C.correo ? `mailto:${C.correo}` : "" }
+    {
+      n: "WhatsApp",
+      icon: "https://cdn.simpleicons.org/whatsapp/25D366",
+      v: wa ? "Escribir por WhatsApp" : "",
+      h: wa ? `https://wa.me/${wa}` : ""
+    },
+    {
+      n: "Facebook",
+      icon: "https://cdn.simpleicons.org/facebook/1877F2",
+      v: "Visitar página",
+      h: C.facebook
+    },
+    {
+      n: "Instagram",
+      icon: "https://cdn.simpleicons.org/instagram/E4405F",
+      v: "Ver perfil",
+      h: C.instagram
+    },
+    {
+      n: "Correo",
+      icon: "https://cdn.simpleicons.org/gmail/EA4335",
+      v: C.correo,
+      h: C.correo ? `mailto:${C.correo}` : ""
+    }
   ];
+
   $("contactGrid").innerHTML = items.map((i) => i.h
-    ? `<a class="contact-card" href="${esc(i.h)}" target="_blank" rel="noopener"><span>${i.n}</span><strong>${esc(i.v)}</strong></a>`
-    : `<div class="contact-card off"><span>${i.n}</span><strong>Próximamente</strong></div>`).join("");
+    ? `<a class="contact-card" href="${esc(i.h)}" target="_blank" rel="noopener">
+        <img class="contact-icon" src="${i.icon}" alt="${i.n}" width="36" height="36">
+        <span>${i.n}</span>
+        <strong>${esc(i.v)}</strong>
+      </a>`
+    : `<div class="contact-card off">
+        <img class="contact-icon" src="${i.icon}" alt="${i.n}" width="36" height="36">
+        <span>${i.n}</span>
+        <strong>Próximamente</strong>
+      </div>`).join("");
+
+  $("fRedes").innerHTML = items.filter((i) => i.h)
+    .map((i) => `<a href="${esc(i.h)}" target="_blank" rel="noopener">${i.n}</a>`)
+    .join("<br>") || "Próximamente";
 
   // Pie de página
   $("fNombre").textContent = S.nombre;
