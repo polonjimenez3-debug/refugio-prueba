@@ -17,16 +17,14 @@ const SITE = {
 
   /* ---- SOBRE NOSOTROS ---- */
   nosotros: {
-    titulo: "Somos una iglesia que vive de la gracia de Dios",
+    titulo: "La iglesia Refugio de Gracia",
     parrafos: [
-      "Iglesia Refugio de Gracia es una comunidad cristiana comprometida con Jesucristo, el centro de nuestra fe y de todo lo que hacemos.",
-      "Creemos en la enseñanza de la Palabra de Dios y en acompañarnos unos a otros para crecer espiritualmente, como familia."
+      "Existimos para amar a Dios y a las personas, acompañando a cada miembro en su crecimiento espiritual, en una relación íntima con Jesús y en el conocimiento de la Palabra de Dios, nuestra autoridad final."
     ],
     pilares: [
-      { titulo: "Cristo primero",     texto: "Nuestra fe y nuestro servicio están fundados en Jesucristo." },
-      { titulo: "Enseñanza bíblica",  texto: "Aprendemos y vivimos la Palabra de Dios." },
-      { titulo: "Crecimiento",        texto: "Caminamos juntos hacia una fe más madura." },
-      { titulo: "Comunidad",          texto: "Aquí hay lugar para ti y para tu familia." }
+      { titulo: "Amar", texto: "A Dios y a las personas." },
+      { titulo: "Servicio", texto: "Ponemos nuestros dones al servicio de Dios." },
+      { titulo: "Crecer", texto: "Crecemos a través de la Palabra de Dios." }
     ]
   },
 
