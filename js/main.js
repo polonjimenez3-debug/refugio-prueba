@@ -16,7 +16,16 @@
   // Nosotros
   $("nosTitulo").textContent = S.nosotros.titulo;
   $("nosTextos").innerHTML = paras(S.nosotros.parrafos);
-  $("nosPilares").innerHTML = S.nosotros.pilares.map((p) => `<li><strong>${esc(p.titulo)}</strong><span>${esc(p.texto)}</span></li>`).join("");
+  const iconosPilares = {
+    amar: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40S6 29 6 17a10 10 0 0 1 18-6 10 10 0 0 1 18 6c0 12-18 23-18 23Z"/><path d="M15 23h6l3-5 4 10 3-5h3"/></svg>',
+    servicio: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40S8 30 8 19a9 9 0 0 1 16-5 9 9 0 0 1 16 5c0 11-16 21-16 21Z"/><path d="M5 28h10l4-6 6 12 4-6h14"/></svg>',
+    crecer: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10c7-3 13-2 18 2v27c-5-4-11-5-18-2zM42 10c-7-3-13-2-18 2v27c5-4 11-5 18-2z"/><path d="M12 17c3-1 6 0 8 1M12 24c3-1 6 0 8 1M36 17c-3-1-6 0-8 1M36 24c-3-1-6 0-8 1"/></svg>'
+  };
+  $("nosPilares").innerHTML = S.nosotros.pilares.map((p) => {
+    const clave = p.titulo.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+    const icono = iconosPilares[clave] || iconosPilares.crecer;
+    return `<li class="pillar-card"><div class="pillar-icon">${icono}</div><strong>${esc(p.titulo)}</strong><span>${esc(p.texto)}</span></li>`;
+  }).join("");
 
   // Pastor
   $("pastorNombre").textContent = S.pastor.nombre;
