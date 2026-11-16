@@ -16,13 +16,19 @@
   // Nosotros
   $("nosTitulo").textContent = S.nosotros.titulo;
   $("nosTextos").innerHTML = paras(S.nosotros.parrafos);
-  const iconosPilares = {
-    amar: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40S6 29 6 17a10 10 0 0 1 18-6 10 10 0 0 1 18 6c0 12-18 23-18 23Z"/><path d="M15 23h6l3-5 4 10 3-5h3"/></svg>',
-    servicio: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 40S8 30 8 19a9 9 0 0 1 16-5 9 9 0 0 1 16 5c0 11-16 21-16 21Z"/><path d="M5 28h10l4-6 6 12 4-6h14"/></svg>',
-    crecer: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10c7-3 13-2 18 2v27c-5-4-11-5-18-2zM42 10c-7-3-13-2-18 2v27c5-4 11-5 18-2z"/><path d="M12 17c3-1 6 0 8 1M12 24c3-1 6 0 8 1M36 17c-3-1-6 0-8 1M36 24c-3-1-6 0-8 1"/></svg>'
-  };
+  
+
+const iconosPilares = {
+  amar: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41S5 29 5 17C5 6 18 3 24 15 30 3 43 6 43 17c0 12-19 24-19 24Z"/></svg>',
+
+ servicio: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 27h9l5 5h13l9-9c2-2 5 1 3 3L33 38H18l-8-6H5z"/><path d="M24 23s-8-5-8-10a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 5-8 10-8 10Z"/></svg>',
+
+  crecer: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 9c7-3 13-2 18 2v28c-5-4-11-5-18-2zM42 9c-7-3-13-2-18 2v28c5-4 11-5 18-2z"/><path d="M12 17l8 2M12 24l8 2M36 17l-8 2M36 24l-8 2"/></svg>'
+};
+
+
   $("nosPilares").innerHTML = S.nosotros.pilares.map((p) => {
-    const clave = p.titulo.normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase();
+    const clave = p.titulo.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase();
     const icono = iconosPilares[clave] || iconosPilares.crecer;
     return `<li class="pillar-card"><div class="pillar-icon">${icono}</div><strong>${esc(p.titulo)}</strong><span>${esc(p.texto)}</span></li>`;
   }).join("");
