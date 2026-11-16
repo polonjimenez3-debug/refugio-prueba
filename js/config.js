@@ -15,16 +15,17 @@ const SITE = {
     imagen: ""                      // Ej: "img/portada.jpg" (foto de adoración, horizontal, máx. 400 KB). Vacío = fondo azul con luz.
   },
 
-  /* ---- SOBRE NOSOTROS ---- */
+
+/* ---- SOBRE NOSOTROS ---- */
   nosotros: {
     titulo: "La iglesia Refugio de Gracia",
     parrafos: [
-      "Existimos para amar a Dios y a las personas, acompañando a cada miembro en su crecimiento espiritual, en una relación íntima con Jesús y en el conocimiento de la Palabra de Dios, nuestra autoridad final."
+      "Existe para amar a Dios y a la gente, apoyando a cada miembro a crecer profundamente en una relación íntima con Jesús y en el conocimiento de la Palabra de Dios como nuestra autoridad final."
     ],
     pilares: [
-      { titulo: "Amar", texto: "A Dios y a las personas." },
-      { titulo: "Servicio", texto: "Ponemos nuestros dones al servicio de Dios." },
-      { titulo: "Crecer", texto: "Crecemos a través de la Palabra de Dios." }
+      { titulo: "Amar",     texto: "A Dios y a la gente." },
+      { titulo: "Servicio",  texto: "Tus dones al servicio de Dios." },
+      { titulo: "Crecer",        texto: "A través de la palabra." }
     ]
   },
 
@@ -57,7 +58,7 @@ ubicacion: {
 
   /* ---- CONTACTO (déjalos vacíos hasta tener los datos reales) ---- */
   contacto: {
-    whatsapp:  "",                  // Solo números con código de país, sin + ni espacios
+    whatsapp:  "1-809-632-9237",                  // Solo números con código de país, sin + ni espacios
     facebook:  "https://www.facebook.com/iglesiarefugiodegracia/",                  // Enlace completo: https://facebook.com/...
     instagram: "https://www.instagram.com/iglesiarefugiodegracia/",                  // Enlace completo: https://instagram.com/...
     correo:    "IglesiaRerugiodegracia@gmail.com"                   // Correo electrónico
