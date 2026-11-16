@@ -202,3 +202,72 @@ a.contact-card:hover{transform:translateY(-4px);border-color:var(--dorado);box-s
     overflow-wrap: anywhere;
   }
 }
+
+
+/* PILARES DE CONÓCENOS */
+.pillars{
+  list-style:none;
+  padding:0;
+  border:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1rem;
+}
+.pillars li.pillar-card{
+  min-width:0;
+  min-height:210px;
+  padding:1.5rem 1rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:.65rem;
+  text-align:center;
+  background:linear-gradient(145deg,#fffdf8,var(--beige));
+  border:1px solid rgba(201,164,92,.48);
+  border-radius:18px 18px 18px 5px;
+  box-shadow:0 10px 28px rgba(20,33,61,.07);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+.pillars li.pillar-card:hover{
+  transform:translateY(-7px);
+  border-color:var(--dorado);
+  box-shadow:0 16px 34px rgba(20,33,61,.13);
+}
+.pillar-icon{
+  width:64px;
+  height:64px;
+  display:grid;
+  place-items:center;
+  color:var(--dorado);
+  background:var(--marino);
+  border:1px solid rgba(201,164,92,.7);
+  border-radius:50%;
+  box-shadow:0 6px 16px rgba(20,33,61,.16);
+}
+.pillar-icon svg{
+  width:34px;
+  height:34px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.pillars li.pillar-card strong{
+  font:500 1.35rem/1.2 var(--serif);
+  color:var(--marino);
+}
+.pillars li.pillar-card span{
+  max-width:22ch;
+  color:var(--tinta);
+  font-size:.92rem;
+  line-height:1.5;
+}
+@media(max-width:859px){
+  .pillars{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+  .pillars{grid-template-columns:1fr}
+  .pillars li.pillar-card{min-height:175px;padding:1.25rem}
+}
