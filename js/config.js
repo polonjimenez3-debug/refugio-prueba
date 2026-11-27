@@ -20,8 +20,12 @@ const SITE = {
   nosotros: {
     titulo: "La iglesia Refugio de Gracia",
     parrafos: [
-      "Existe para amar a Dios y a la gente, apoyando a cada miembro a crecer profundamente en una relación íntima con Jesús y en el conocimiento de la Palabra de Dios como nuestra autoridad final."
+       "Existimos para amar a Dios y a la gente y crecer en una relación genuina con Jesús a través del estudio de la palabra de Dios.",
+       " El propósito de La iglesia Refugio de Gracia",
+      "Nuestro propósito es hacer iglesia para personas que no tienen iglesia o que no están interesadas en pertenecer a ninguna, deseamos expandir el mensaje del evangelio de formas y maneras que nos permitan ganar a las personas que Dios desea añadir a su cuerpo y a nuestra iglesia."
     ],
+
+
     pilares: [
       { titulo: "Amar",     texto: "A Dios y a la gente." },
       { titulo: "Servicio",  texto: "Tus dones al servicio de Dios." },
@@ -43,6 +47,7 @@ const SITE = {
   /* ---- HORARIOS (puedes agregar o quitar bloques { }) ---- */
   servicios: [
     { dia: "Miércoles", hora: "7:30 p. m.", detalle: "Estudio Biblico" },
+    { dia: "Sábados", hora: "7:30 p. m.", detalle: "Hogares de Gracia" },
     { dia: "Domingos",  hora: "6:30 p. m.", detalle: "Servicio" }
   ],
 

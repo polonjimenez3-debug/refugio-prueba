@@ -37,9 +37,7 @@ const iconosPilares = {
   $("pastorNombre").textContent = S.pastor.nombre;
   $("pastorCargo").textContent = S.pastor.cargo;
   $("pastorTexto").innerHTML = paras(S.pastor.descripcion);
-  $("pastorFoto").innerHTML = S.pastor.foto
-    ? `<img src="${esc(S.pastor.foto)}" alt="${esc(S.pastor.nombre)}" loading="lazy">`
-    : `<div class="ph" role="img" aria-label="Espacio para la fotografía del pastor">Foto del pastor<small>img/pastor.jpg</small></div>`;
+ 
 
   // Servicios
   $("servCards").innerHTML = S.servicios.map((s) =>
