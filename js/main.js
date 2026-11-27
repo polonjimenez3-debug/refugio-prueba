@@ -2,7 +2,12 @@
 (function () {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const paras = (arr) => arr.map((t) => `<p>${esc(t)}</p>`).join("");
+  const paras = (arr) => arr.map((t, i) => {
+  if (i === 0 || i === 2) {
+    return `<p><strong>${esc(t.replace(/<[^>]*>/g, ""))}</strong></p>`;
+  }
+  return `<p>${esc(t)}</p>`;
+}).join("");
   const S = SITE;
 
   document.title = S.nombre;
@@ -33,11 +38,45 @@ const iconosPilares = {
     return `<li class="pillar-card"><div class="pillar-icon">${icono}</div><strong>${esc(p.titulo)}</strong><span>${esc(p.texto)}</span></li>`;
   }).join("");
 
-  // Pastor
-  $("pastorNombre").textContent = S.pastor.nombre;
-  $("pastorCargo").textContent = S.pastor.cargo;
-  $("pastorTexto").innerHTML = paras(S.pastor.descripcion);
- 
+ // Lo que creemos
+const iconosCreencias = {
+  "Adoración": `<svg viewBox="0 0 48 48" aria-hidden="true">
+    <path d="M24 40S6 29 6 17C6 6 19 3 24 15 29 3 42 6 42 17c0 12-18 23-18 23Z"/>
+  </svg>`,
+
+  "Evangelismo": `<svg viewBox="0 0 48 48" aria-hidden="true">
+    <path d="M6 10c7-3 13-2 18 2v27c-5-4-11-5-18-2z"/>
+    <path d="M42 10c-7-3-13-2-18 2v27c5-4 11-5 18-2z"/>
+    <path d="M24 15v12M18 21h12"/>
+  </svg>`,
+
+  "Discipulado": `<svg viewBox="0 0 48 48" aria-hidden="true">
+    <circle cx="24" cy="14" r="7"/>
+    <circle cx="10" cy="20" r="5"/>
+    <circle cx="38" cy="20" r="5"/>
+    <path d="M11 39c0-8 5-13 13-13s13 5 13 13M2 39c0-6 3-10 8-10M46 39c0-6-3-10-8-10"/>
+  </svg>`,
+
+  "Enseñanza": `<svg viewBox="0 0 48 48" aria-hidden="true">
+    <path d="M5 9c7-3 13-2 19 2v28c-6-4-12-5-19-2z"/>
+    <path d="M43 9c-7-3-13-2-19 2v28c6-4 12-5 19-2z"/>
+  </svg>`,
+
+  "Servicio": `<svg viewBox="0 0 48 48" aria-hidden="true">
+    <path d="M24 41S5 29 5 17C5 6 18 3 24 15 30 3 43 6 43 17c0 12-19 24-19 24Z"/>
+  </svg>`
+};
+
+$("beliefsGrid").innerHTML = S.creencias.map((c) => `
+  <article class="belief-card">
+    <div class="belief-icon">${iconosCreencias[c.titulo]}</div>
+    <h3>${esc(c.titulo)}</h3>
+    <p>${esc(c.texto)}</p>
+    ${c.titulo === "Servicio"
+      ? `<strong class="belief-motto">Aquí tus dones Importan.</strong>`
+      : ""}
+  </article>
+`).join("");
 
   // Servicios
   $("servCards").innerHTML = S.servicios.map((s) =>
@@ -136,4 +175,37 @@ $("mapa").parentElement.style.display = "none";
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15 });
     document.querySelectorAll(".section .wrap").forEach((el) => { el.classList.add("reveal"); io.observe(el); });
   }
+
+  // Ventana Lo que creemos
+const modalCreencias = $("modalCreencias");
+const abrirCreencias = $("abrirCreencias");
+const cerrarCreencias = $("cerrarCreencias");
+
+abrirCreencias.addEventListener("click", (e) => {
+  e.preventDefault();
+  modalCreencias.classList.add("activa");
+  document.body.style.overflow = "hidden";
+});
+
+cerrarCreencias.addEventListener("click", () => {
+  modalCreencias.classList.remove("activa");
+  document.body.style.overflow = "";
+});
+
+// Cerrar al hacer clic fuera de la ventana
+modalCreencias.addEventListener("click", (e) => {
+  if (e.target === modalCreencias) {
+    modalCreencias.classList.remove("activa");
+    document.body.style.overflow = "";
+  }
+});
+
+// Cerrar con la tecla Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modalCreencias.classList.remove("activa");
+    document.body.style.overflow = "";
+  }
+});
+
 })();

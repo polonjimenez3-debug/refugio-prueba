@@ -17,13 +17,14 @@ const SITE = {
 
 
 /* ---- SOBRE NOSOTROS ---- */
-  nosotros: {
-    titulo: "La iglesia Refugio de Gracia",
-    parrafos: [
-       "Existimos para amar a Dios y a la gente y crecer en una relación genuina con Jesús a través del estudio de la palabra de Dios.",
-       " El propósito de La iglesia Refugio de Gracia",
-      "Nuestro propósito es hacer iglesia para personas que no tienen iglesia o que no están interesadas en pertenecer a ninguna, deseamos expandir el mensaje del evangelio de formas y maneras que nos permitan ganar a las personas que Dios desea añadir a su cuerpo y a nuestra iglesia."
-    ],
+nosotros: {
+  titulo: "La iglesia Refugio de Gracia",
+  parrafos: [
+    "<strong>Nuestra Misión</strong>",
+    "Existimos para amar a Dios y a la gente y crecer en una relación genuina con Jesús a través del estudio de la palabra de Dios.",
+    "<strong>El propósito de La iglesia Refugio de Gracia</strong>",
+    "Nuestro propósito es hacer iglesia para personas que no tienen iglesia o que no están interesadas en pertenecer a ninguna, deseamos expandir el mensaje del evangelio de formas y maneras que nos permitan ganar a las personas que Dios desea añadir a su cuerpo y a nuestra iglesia."
+  ],
 
 
     pilares: [
@@ -33,16 +34,29 @@ const SITE = {
     ]
   },
 
-  /* ---- PASTOR ---- */
-  pastor: {
-    nombre: "Pastor Fernando Zoquier",
-    cargo: "Pastor de Iglesia Refugio de Gracia",
-    foto: "",                       // Ej: "img/pastor.jpg" (foto vertical). Vacío = espacio reservado.
-    descripcion: [
-      "El pastor Fernando Zoquier guía a la congregación en la enseñanza de la Palabra y en el cuidado espiritual de cada familia.",
-      "(Edita este texto en js/config.js para añadir su historia y su labor ministerial.)"
-    ]
+/* ---- Los pilares ---- */
+creencias: [
+  {
+    titulo: "Adoración",
+    texto: "Creemos que todas las personas existen para la gloria de Dios y que Dios creó a los seres vivos para que lo adoren, estamos enfocados en que la adoración a nuestro Dios sea uno de los elementos más importantes en nuestras reuniones semanales."
   },
+  {
+    titulo: "Evangelismo",
+    texto: "La mayor parte de nuestra programación está enfocada en el cumplimiento de Mateo 28:19-20, creemos firmemente que todo lo que hacemos como iglesia debe estar dentro del marco de la Gran comisión dada por nuestro Señor Jesucristo."
+  },
+  {
+    titulo: "Discipulado",
+    texto: "Creemos fielmente en como la enseñanza de la palabra Dios puede llevar a las personas a ser verdaderos discípulos, y estamos convencidos de que esto ocurrirá a través del proceso de discipulado."
+  },
+  {
+    titulo: "Enseñanza",
+    texto: "Creemos que la enseñanza es uno de los principales ministerios dados por el señor a su iglesia, toda nuestra enseñanza gira en torno a los principios bíblicos, creemos firmemente en la plena autoridad de las escrituras."
+  },
+  {
+    titulo: "Servicio",
+    texto: "Creemos que cuando el señor salva a las personas el Espíritu Santo le regala dones espirituales para que sean utilizados para la edificación de su cuerpo esto es, la iglesia, por lo que los dones que el señor nos ha dado son para servir en la congregación, por eso promovemos la plataforma para que todos puedan servir, tenemos un lema: Aquí tus dones Importan."
+  }
+],
 
   /* ---- HORARIOS (puedes agregar o quitar bloques { }) ---- */
   servicios: [
